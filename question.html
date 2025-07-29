@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rajasthan GK Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4ff;
+      padding: 20px;
+    }
+    h2 {
+      color: #3f51b5;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #3f51b5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Rajasthan GK Quiz</h2>
+
+  <form id="quizForm">
+
+    <div class="question">
+      <p>1. What is the capital of Rajasthan?</p>
+      <input type="radio" name="q1" value="a"> Jodhpur<br>
+      <input type="radio" name="q1" value="b"> Udaipur<br>
+      <input type="radio" name="q1" value="c"> Jaipur<br>
+      <input type="radio" name="q1" value="d"> Bikaner<br>
+    </div>
+
+    <div class="question">
+      <p>2. Which desert is located in Rajasthan?</p>
+      <input type="radio" name="q2" value="a"> Sahara<br>
+      <input type="radio" name="q2" value="b"> Thar<br>
+      <input type="radio" name="q2" value="c"> Kalahari<br>
+      <input type="radio" name="q2" value="d"> Gobi<br>
+    </div>
+
+    <div class="question">
+      <p>3. Who was the founder of Jaipur?</p>
+      <input type="radio" name="q3" value="a"> Maharana Pratap<br>
+      <input type="radio" name="q3" value="b"> Rana Sanga<br>
+      <input type="radio" name="q3" value="c"> Sawai Jai Singh II<br>
+      <input type="radio" name="q3" value="d"> Bhojraj<br>
+    </div>
+
+    <div class="question">
+      <p>4. Which animal is the state animal of Rajasthan?</p>
+      <input type="radio" name="q4" value="a"> Camel<br>
+      <input type="radio" name="q4" value="b"> Chinkara<br>
+      <input type="radio" name="q4" value="c"> Tiger<br>
+      <input type="radio" name="q4" value="d"> Elephant<br>
+    </div>
+
+    <div class="question">
+      <p>5. Where is the famous "Pushkar Fair" held?</p>
+      <input type="radio" name="q5" value="a"> Ajmer<br>
+      <input type="radio" name="q5" value="b"> Jaipur<br>
+      <input type="radio" name="q5" value="c"> Pushkar<br>
+      <input type="radio" name="q5" value="d"> Bikaner<br>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: "c",
+        q2: "b",
+        q3: "c",
+        q4: "b",
+        q5: "c"
+      };
+
+      let score = 0;
+
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) {
+          score++;
+        }
+      }
+
+      document.getElementById("result").innerText = `You scored ${score} out of ${Object.keys(answers).length}`;
+    }
+  </script>
+
+</body>
+</html>
